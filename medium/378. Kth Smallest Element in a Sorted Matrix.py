@@ -1,0 +1,1 @@
+class Solution:    def kthSmallest(self, matrix, k):        """        :type matrix: List[List[int]]        :type k: int        :rtype: int        """        nums=[]        for i in matrix:        	nums+=i        nums.sort()        return nums[k-1]
