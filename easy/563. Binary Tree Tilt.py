@@ -6,16 +6,16 @@
 #         self.right = None
 
 class Solution:
-    def countNodes(self, root):
+    def findTilt(self, root):
         """
         :type root: TreeNode
         :rtype: int
         """
-        self.count=0
+        self.sums=0
         self.dfs(root)
-        return self.count
+        return self.sums
     def dfs(self,root):
-        if root:
-            self.count+=1
-            self.dfs(root.left)
-            self.dfs(root.right)
+        if not root: return 0
+        left, right = self.dfs(root.left), self.dfs(root.right)
+        self.sums += abs(left - right)
+        return root.val + left + right
